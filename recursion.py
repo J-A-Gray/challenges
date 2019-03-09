@@ -1,4 +1,15 @@
 """Recursion practice"""
+
+#helper classes
+
+class Node(): #nodes for LLs
+    def __init__(self, data, next = None):
+        self.data = data
+        self.next = next
+
+
+
+
 def range_sum(begin, end, step):
     """
     Return the sum of a range of integers.  The range is defined by 3
@@ -38,8 +49,30 @@ def sum_nested(lst):
 
     return output
 
+def stringify(node):
+    """ 
+    >>> stringify(Node(1, Node(2, Node(3))))
+    '1 -> 2 -> 3 -> None'
+
+    >>> stringify(None)
+    'None'
+
+    """
+    output = ""
+    if not node:
+        return output + "None"
+    return output + str(node.data) + " -> " + stringify(node.next)
+
+    # if not node:
+    #     return 'None'
+    # return f'{node.data} -> {stringify(node.next)}'
+
+
+
+
 
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
         print("\n*** ALL TESTS PASSED. YAY!\n")
+\
