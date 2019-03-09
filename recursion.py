@@ -23,6 +23,20 @@ def range_sum(begin, end, step):
 
     return begin + range_sum(begin + step, end, step)
 
+def sum_nested(lst):
+    """
+    >>> sum_nested([1, [2, [3, 5], 5], 6])
+    22
+
+    >>> sum_nested([1, 1, 1, [1, 1], 1])
+    6
+        
+    """
+    output = 0
+    for item in lst:
+        output += item if not isinstance(item, list) else sum_nested(item)
+
+    return output
 
 
 if __name__ == "__main__":
