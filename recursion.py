@@ -105,6 +105,19 @@ def find_max(lst):
         else:
             return highest
 
+def print_list(lst):
+    """Prints out each element in a list recursively.
+
+    >>> print_list(["apple", "berry", "cherry"])
+    "apple"
+    "berry"
+    "cherry"
+
+    """
+    if len(lst) == 1:
+        print(lst[0])
+    else:
+        print_list(lst[1:])
 
 
 
