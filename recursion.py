@@ -51,6 +51,10 @@ def sum_nested(lst):
 
 def stringify(node):
     """ 
+    Uses prebuilt Node class. Create a function which accepts an argument of a 
+    linked list and returns a string representation of the list.  The string
+    representation 
+
     >>> stringify(Node(1, Node(2, Node(3))))
     '1 -> 2 -> 3 -> None'
 
@@ -68,11 +72,51 @@ def stringify(node):
     # return f'{node.data} -> {stringify(node.next)}'
 
 
+def find_max(lst):
+    """Find the max in a list of integers recursively
 
+
+    >>> find_max([1, 2, 3, 97])
+    97
+
+    >>> find_max([1, 1, 1, 1])
+    1
+
+    # >>> find_max([])
+    # 0
+
+    >>> find_max([97, 5, 4])
+    97
+
+    >>> find_max([3, 2, -98])
+    3
+
+    >>> find_max([3, 100, 1])
+    100
+
+
+    """
+    if len(lst) == 1:
+        return lst[0]
+    else:
+        highest = find_max(lst[1:])
+        if lst[0] > highest:
+            return lst[0]
+        else:
+            return highest
+
+
+
+
+
+"""
+Write a function that takes a list of integers, and finds the maximum of the list using recursion.
+Write a function that prints out each element in a given list using recursion.
+Write a function that prints out the integers 1 through 5 using recursion.
+Write a function that takes a list of integers, and returns a list of each integer in that list doubled, using recursion."""
 
 
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
         print("\n*** ALL TESTS PASSED. YAY!\n")
-\
