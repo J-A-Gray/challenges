@@ -1,14 +1,23 @@
 """Recursion practice"""
 
-#helper classes
+#helper classes for later problems
 
 class Node(): #nodes for LLs
     def __init__(self, data, next = None):
         self.data = data
         self.next = next
 
+class TreeNode(object):
+    """Tree node."""
 
+    def __init__(self, data, children=None):
+        self.data = data
+        self.children = children or []
 
+    def __repr__(self):
+        return "<TreeNode {}>".format(self.data)
+#
+"""Begin problems"""
 
 def range_sum(begin, end, step):
     """
@@ -218,6 +227,25 @@ def get_even(lst):
             return get_even(lst[1:])
 
     # return [item for item in lst if item % 2 == 0]
+
+resume = TreeNode("resume.txt")
+recipes = TreeNode("recipes.txt")
+jane = TreeNode("jane/", [resume, recipes])
+
+
+def print_treenodes(node, depth=0):
+    """
+    >>> print_treenodes(jane)
+    jane/
+     resume.txt
+     recipes.txt
+
+    
+    """
+ 
+    print(" " * depth + node.data)
+    for child in node.children:
+        print_treenodes(child, depth + 1)
 
 if __name__ == "__main__":
     import doctest

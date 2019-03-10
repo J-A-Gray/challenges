@@ -7,7 +7,17 @@ class Node(): #nodes for LLs
         self.data = data
         self.next = next
 
+class TreeNode(object):
+    """Tree node."""
 
+    def __init__(self, data, children=None):
+        self.data = data
+        self.children = children or []
+
+    def __repr__(self):
+        return "<TreeNode {}>".format(self.data)
+
+"""Begin problems"""
 
 
 def range_sum(begin, end, step):
@@ -155,7 +165,21 @@ def get_even(lst):
     []
 
     """
+resume = TreeNode("resume.txt")
+recipes = TreeNode("recipes.txt")
+jane = TreeNode("jane/", [resume, recipes])
+
+
+def print_treenodes(node, depth=0):
+    """
+    >>> print_treenodes(jane)
+    jane/
+     resume.txt
+     recipes.txt
+
     
+    """
+
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
