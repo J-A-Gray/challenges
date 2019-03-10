@@ -101,9 +101,6 @@ def find_max(lst):
     >>> find_max([1, 1, 1, 1])
     1
 
-    # >>> find_max([])
-    # 0
-
     >>> find_max([97, 5, 4])
     97
 
@@ -138,9 +135,7 @@ def print_list(lst):
     3
 
     """
-    if len(lst) == 1:
-        print(lst[0])
-    else:
+    if lst:
         print(lst[0])
         return print_list(lst[1:])
 

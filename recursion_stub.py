@@ -78,9 +78,6 @@ def find_max(lst):
     >>> find_max([1, 1, 1, 1])
     1
 
-    # >>> find_max([])
-    # 0
-
     >>> find_max([97, 5, 4])
     97
 
