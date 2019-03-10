@@ -43,11 +43,21 @@ def sum_nested(lst):
     6
         
     """
-    output = 0
-    for item in lst:
-        output += item if not isinstance(item, list) else sum_nested(item)
+    # output = 0
+    # for item in lst:
+    #     output += item if not isinstance(item, list) else sum_nested(item)
 
-    return output
+    # return output
+
+    if len(lst) == 0:
+        return 0
+    else:
+        head = lst[0]
+        if isinstance(head, int):
+            return head + sum_nested(lst[1:])
+        else:
+            return sum_nested(head) + sum_nested(lst[1:])
+
 
 def stringify(node):
     """ 
@@ -144,6 +154,31 @@ def print_integers(n):
     if n >= 1:
         print_integers(n-1)
         print(n)
+
+
+def double_list(lst):
+    """Return a list of given integers doubled
+
+    >>> double_list([1, 2, 3])
+    [2, 4, 6]
+
+    >>> double_list([2, 2, 2])
+    [4, 4, 4]
+
+    """
+    # new_lst = []
+    # for n in lst:
+    #     if isinstance(n, list):
+    #         print_doubled_integers(n)
+    #     else:
+    #         new_lst.append(n*2)
+    # return new_lst
+
+    #no iteration version
+    if len(lst) == 0:
+        return []
+    else:
+        return[lst[0]*2] + double_list(lst[1:])
 
 """
 Write a function that takes a list of integers, and finds the maximum of the list using recursion.
