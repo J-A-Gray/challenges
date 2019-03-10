@@ -109,15 +109,21 @@ def print_list(lst):
     """Prints out each element in a list recursively.
 
     >>> print_list(["apple", "berry", "cherry"])
-    "apple"
-    "berry"
-    "cherry"
+    apple
+    berry
+    cherry
+
+    >>> print_list([1, 2, 3])
+    1
+    2
+    3
 
     """
     if len(lst) == 1:
         print(lst[0])
     else:
-        print_list(lst[1:])
+        print(lst[0])
+        return print_list(lst[1:])
 
 
 
@@ -133,3 +139,4 @@ if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
         print("\n*** ALL TESTS PASSED. YAY!\n")
+
