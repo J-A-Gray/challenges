@@ -180,13 +180,21 @@ def double_list(lst):
     else:
         return[lst[0]*2] + double_list(lst[1:])
 
-"""
-Write a function that takes a list of integers, and finds the maximum of the list using recursion.
-Write a function that prints out each element in a given list using recursion.
-Write a function that prints out the integers 1 through 5 using recursion.
-Write a function that takes a list of integers, and returns a list of each integer in that list doubled, using recursion."""
+def get_factorial(n):
+    """Return the factorial of a given integer
 
+    >>> get_factorial(6)
+    720
 
+    >>> get_factorial(4)
+    24
+
+    """
+
+    if n == 1:
+        return n
+
+    return n * get_factorial(n-1)
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
