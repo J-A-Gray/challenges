@@ -126,7 +126,24 @@ def print_list(lst):
         return print_list(lst[1:])
 
 
+def print_integers(n):
+    """Write a function that prints out the integers 1 through n using recursion
+    
+    >>> print_integers(5)
+    1
+    2
+    3
+    4
+    5
 
+    >>> print_integers(2)
+    1
+    2
+
+    """
+    if n >= 1:
+        print_integers(n-1)
+        print(n)
 
 """
 Write a function that takes a list of integers, and finds the maximum of the list using recursion.
