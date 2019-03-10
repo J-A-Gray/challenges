@@ -195,6 +195,28 @@ def get_factorial(n):
         return n
 
     return n * get_factorial(n-1)
+
+def get_even(lst):
+    """Return a list of even integers, given a list of integers
+
+    >>> get_even([1, 2, 3, 4, 5, 6])
+    [2, 4, 6]
+
+    >>> get_even([2, 2, 2])
+    [2, 2, 2])
+
+    >>> get_even([])
+    []
+
+    """
+    if len(lst) == 0:
+        return []
+    else:
+        if lst[0] % 2 == 0:
+            return lst[0] + get_even(lst[1:])
+        else:
+            return get_even(lst[1:])
+
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
