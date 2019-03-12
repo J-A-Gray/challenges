@@ -121,6 +121,7 @@ def find_max(lst):
         else:
             return highest
 
+
 def print_list(lst):
     """Prints out each element in a list recursively.
 
@@ -241,6 +242,8 @@ def print_treenodes(node, depth=0):
     print(" " * depth + node.data)
     for child in node.children:
         print_treenodes(child, depth + 1)
+
+def fibonacci
 
 if __name__ == "__main__":
     import doctest
