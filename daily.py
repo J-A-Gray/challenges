@@ -1,6 +1,7 @@
 from functools import reduce
 import operator
 
+
 def does_sum(lst, n):
     """Return whether any two numbers in a given list sum to a given num
 
@@ -39,12 +40,27 @@ def get_product_less_idx_element(lst):
     [2, 3, 6]
     """
 
-
     return [int(prod(lst)/num) for num in lst]
 
+def find_matching_paren(phrase, position):
+    """Returns the index of the matching closing paren for a given opening
+    >>> find_matching_paren("Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing.", 10)
+    79
 
-    
+    >>> find_matching_paren("Help, (I'm trapped!))", 6)
+    19
+    """
 
+    open_parens = 0
+    for idx, char in enumerate(phrase):
+        if char == "(":
+            open_parens += 1
+        if char == ")":
+            open_parens -= 1
+            if open_parens == 0:
+                return idx
+
+    raise Exception("No closing parens")
 
 
 if __name__ == "__main__":
