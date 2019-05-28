@@ -7,7 +7,7 @@ class Node(): #nodes for LLs
         self.data = data
         self.next = next
 
-class TreeNode(object):
+class TreeNode():
     """Tree node."""
 
     def __init__(self, data, children=None):
@@ -16,14 +16,40 @@ class TreeNode(object):
 
     def __repr__(self):
         return "<TreeNode {}>".format(self.data)
-#
+
+
+# instantiate some Nodes for the Node problems
+
+resume = TreeNode("resume.txt")
+recipes = TreeNode("recipes.txt")
+jane = TreeNode("jane/", [resume, recipes])
+
+
+
 """Begin problems"""
+
+
+def print_treenodes(node, depth=0):
+    """
+    >>> print_treenodes(jane)
+    jane/
+     resume.txt
+     recipes.txt
+
+
+    """
+
+    print(" " * depth + node.data)
+    for child in node.children:
+        print_treenodes(child, depth + 1)
+
+
 
 def range_sum(begin, end, step):
     """
-    Return the sum of a range of integers.  The range is defined by 3
-    non-negative values: begin, end, step.  If begin is greater than end,
-    return 0.
+    Return the sum of a range of integers.
+
+    The range is defined by 3 non-negative values: begin, end, step.  If begin is greater than end, return 0.
 
     >>> range_sum(2, 2, 2)
     2
@@ -45,6 +71,8 @@ def range_sum(begin, end, step):
 
 def sum_nested(lst):
     """
+    Return the sum of elements in a nested list.
+
     >>> sum_nested([1, [2, [3, 5], 5], 6])
     22
 
@@ -70,9 +98,9 @@ def sum_nested(lst):
 
 def stringify(node):
     """ 
-    Uses prebuilt Node class. Create a function which accepts an argument of a 
-    linked list and returns a string representation of the list.  The string
-    representation 
+    Create a function which accepts an argument of a linked list and returns a string representation of the list.
+
+    Uses prebuilt Node class. The string representation as below:
 
     >>> stringify(Node(1, Node(2, Node(3))))
     '1 -> 2 -> 3 -> None'
@@ -92,7 +120,7 @@ def stringify(node):
 
 
 def find_max(lst):
-    """Find the max in a list of integers recursively
+    """Find the max in a list of integers recursively.
 
 
     >>> find_max([1, 2, 3, 97])
@@ -202,7 +230,7 @@ def get_factorial(n):
     return n * get_factorial(n-1)
 
 def get_even(lst):
-    """Return a list of even integers, given a list of integers
+    """Recursively return a list of even integers, from a given list of integers.
 
     >>> get_even([1, 2, 3, 4, 5, 6])
     [2, 4, 6]
@@ -222,28 +250,9 @@ def get_even(lst):
         else:
             return get_even(lst[1:])
 
-    # return [item for item in lst if item % 2 == 0]
-
-resume = TreeNode("resume.txt")
-recipes = TreeNode("recipes.txt")
-jane = TreeNode("jane/", [resume, recipes])
 
 
-def print_treenodes(node, depth=0):
-    """
-    >>> print_treenodes(jane)
-    jane/
-     resume.txt
-     recipes.txt
 
-    
-    """
- 
-    print(" " * depth + node.data)
-    for child in node.children:
-        print_treenodes(child, depth + 1)
-
-def fibonacci
 
 if __name__ == "__main__":
     import doctest

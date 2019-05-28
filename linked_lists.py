@@ -1,4 +1,4 @@
-class Node(object):
+class Node():
     """Node in a linked list."""
 
     def __init__(self, data):
@@ -10,7 +10,7 @@ class Node(object):
                                         self.data,
                                         self.next.data if self.next else None,
                                         )
-class DLLNode(object):
+class DLLNode():
 
     def __init__(self, data):
         self.data = data
@@ -24,7 +24,7 @@ class DLLNode(object):
                                         self.prev.data if self.prev else None
                                         )
 
-class DLinkedList(object):
+class DLinkedList():
 
     def __init__(self, head=None, tail=None):
         self.head = head
@@ -52,7 +52,7 @@ class DLinkedList(object):
 
 
 
-class LinkedList(object):
+class LinkedList():
     """A linked list."""
     def __init__(self, head=None, tail=None):
         self.head = head
