@@ -63,6 +63,51 @@ def find_matching_paren(phrase, position):
     raise Exception("No closing parens")
 
 
+def remove_overlapping_intervals(intervals: list) -> list:
+    """Given a list of possibly overlapping intervals, return a new list of intervals where all overlapping intervals
+    have been merged.
+
+    The input list is not necessarily ordered in any way.
+
+    For example, given [(1, 3), (5, 8), (4, 10), (20, 25)], you should return [(1, 3), (4, 10), (20, 25)].
+
+    >>> remove_overlapping_intervals([(1, 3), (5, 8), (4, 10), (20, 25)])
+    [(1, 3), (4, 10), (20, 25)]
+
+    >>> remove_overlapping_intervals([(5, 8), (4, 10), (20, 25), (1, 3)])
+    [(1, 3), (4, 10), (20, 25)]
+
+    """
+
+    #helper function
+    def compare_intervals(interval1, interval2):
+        """Return False if intervals don't overlap, the smaller interval if they do."""
+        smaller_interval = False
+
+        interval1_range = range(interval1[0], interval1[1])
+        interval2_range = range(interval2[0], interval2[1])
+
+        if interval2[0] in interval1_range and interval2[1] in interval1_range:
+            smaller_interval = interval2
+        elif interval1[0] in interval2_range and interval1[1] in interval2_range:
+            smaller_interval = interval1
+
+        return smaller_interval
+
+    #compare all intervals using helper function
+    results, comparison = set(intervals), set(intervals)
+    for interval in intervals:
+        for tuple in comparison:
+            smaller_interval = compare_intervals(interval, tuple)
+            if smaller_interval in results:
+                results.remove(smaller_interval)
+
+
+
+    return sorted(list(results))
+
+
+
 if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
