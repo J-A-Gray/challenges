@@ -97,6 +97,22 @@ def find_anagrams_by_indices(word, S):
 
     return indices
 
+def find_unique_integer(id_list):
+    """Given the list of IDs, which contains many duplicate integers and one unique integer, find the unique integer.
+    >>> find_unique_integer([1, 2, 2, 3, 3, 5, 6, 7, 7, 8, 5, 8, 6])
+    1
+
+    """
+    ids = set()
+    for num in id_list:
+        if not num in ids:
+            ids.add(num)
+        else:
+            ids.remove(num)
+
+    return ids.pop()
+
+
 
 
 if __name__ == "__main__":
