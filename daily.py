@@ -1,6 +1,6 @@
 from functools import reduce
 import operator
-from typing import List, Any, Tuple
+from typing import List, Any, Tuple, Union
 
 
 def does_sum(lst, n):
@@ -111,6 +111,29 @@ def find_unique_integer(id_list):
             ids.remove(num)
 
     return ids.pop()
+
+def reverse_only_alpha_chars(phrase:str):
+    """Reverse only the letters in a string, leaving the numbers as-is.
+    >>> reverse_only_alpha_chars('abc23xz')
+    'zx23cba'
+
+    :type phrase: str
+
+    """
+
+    results = list(range(len(phrase)))
+    length = len(phrase) - 1
+
+
+    for idx, item in enumerate(list(phrase)):
+
+        if item.isalpha():
+            results[length - idx] = item
+        else:
+            results[idx - 1] = item
+
+    return "".join(results)
+
 
 
 
