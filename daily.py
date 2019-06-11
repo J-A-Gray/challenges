@@ -117,23 +117,36 @@ def reverse_only_alpha_chars(phrase:str):
     >>> reverse_only_alpha_chars('abc23xz')
     'zx23cba'
 
+    >>> reverse_only_alpha_chars('a')
+    'a'
+
+    >>> reverse_only_alpha_chars('')
+    ''
+
+    >>> reverse_only_alpha_chars('123456')
+    '123456'
+
     :type phrase: str
 
     """
 
-    results = list(range(len(phrase)))
-    length = len(phrase) - 1
+    if len(phrase) <= 1 or phrase.isdigit():
+        results = phrase
+
+    else:
+        phrase_list = list(phrase)
+        length = len(phrase) - 1
+
+        for idx, item in enumerate(list(phrase)):
+            if item.isdigit():
+                phrase_list[idx - 1] = item
+            else:
+                phrase_list[length - idx] = item
 
 
-    for idx, item in enumerate(list(phrase)):
+        results = "".join(phrase_list)
 
-        if item.isalpha():
-            results[length - idx] = item
-        else:
-            results[idx - 1] = item
-
-    return "".join(results)
-
+    return results
 
 
 
