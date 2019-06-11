@@ -115,7 +115,7 @@ def find_unique_integer(id_list):
 def reverse_only_alpha_chars(phrase:str):
     """Reverse only the letters in a string, leaving the numbers as-is.
     >>> reverse_only_alpha_chars('abc23xz')
-    'zx23cba'
+    'zxc23ba'
 
     >>> reverse_only_alpha_chars('a')
     'a'
@@ -126,6 +126,9 @@ def reverse_only_alpha_chars(phrase:str):
     >>> reverse_only_alpha_chars('123456')
     '123456'
 
+    >>> reverse_only_alpha_chars('1a2b3c')
+    '1c2b3a'
+
     :type phrase: str
 
     """
@@ -134,17 +137,17 @@ def reverse_only_alpha_chars(phrase:str):
         results = phrase
 
     else:
-        phrase_list = list(phrase)
-        length = len(phrase) - 1
+        results = ""
+        letters = [char for char in phrase if char.isalpha()]
 
-        for idx, item in enumerate(list(phrase)):
-            if item.isdigit():
-                phrase_list[idx - 1] = item
+
+        for char in phrase:
+            if char.isalpha():
+                results += letters.pop()
+
             else:
-                phrase_list[length - idx] = item
+                results += char
 
-
-        results = "".join(phrase_list)
 
     return results
 
