@@ -102,6 +102,10 @@ def find_unique_integer(id_list):
     >>> find_unique_integer([1, 2, 2, 3, 3, 5, 6, 7, 7, 8, 5, 8, 6])
     1
 
+    :param id_list
+    :type id_list: list
+    :rtype: int
+
     """
     ids = set()
     for num in id_list:
@@ -130,20 +134,22 @@ def reverse_only_alpha_chars(phrase:str):
     '1c2b3a'
 
     :type phrase: str
+    :rtype: str
 
     """
 
-    if len(phrase) <= 1 or phrase.isdigit():
+    if len(phrase) <= 1 or phrase.isdigit(): #win quick
         results = phrase
 
     else:
         results = ""
-        letters = [char for char in phrase if char.isalpha()]
+
+        letters = [char for char in phrase if char.isalpha()] #python list as a stack
 
 
         for char in phrase:
             if char.isalpha():
-                results += letters.pop()
+                results += letters.pop() #will pop off in lifo order
 
             else:
                 results += char
@@ -151,6 +157,47 @@ def reverse_only_alpha_chars(phrase:str):
 
     return results
 
+
+
+def toggle_hats(num_cats:int):
+    """
+    You have n number of cats, none of which are wearing hats.  Every time you interact with a cat, they will either
+    put on  a hat if they aren't wearing a hat or take off the hat they are wearing.  You will interact with the
+    group of cats n times (as many times as they are cats).  The first time you will interact with every cat, the
+    second time every other cat, the third time every third cat, etc.  Return an array of the state of each cat at the
+    end of n rounds of interaction.  If the cat is wearing a hat, they will be represented by the bool True, if they
+    are not wearing a hat, they will be represented by the bool False.
+
+    >>> toggle_hats(16)
+    [True, False, False, True, False, False, False, False, True, False, False, False, False, False, False, True]
+
+
+    :param num_cats
+    :type num_cats: int
+    :rtype: list
+
+    """
+    #create inital list of cats without hats - all elements False
+    cats = []
+    i = 0
+    while i < num_cats:
+        cats.append(False)
+        i += 1
+    # print("Before toggling, cats is")
+    # print(cats)
+
+    #begin toggling rounds
+    toggle = 1
+    while toggle <= num_cats:
+        # print("Round is", toggle)
+        for idx, cat in enumerate(cats):
+            # print(idx + 1, cat)
+            if (idx + 1) % toggle == 0:
+                cats[idx] = not(cat)
+
+        toggle += 1
+
+    return cats
 
 
 
