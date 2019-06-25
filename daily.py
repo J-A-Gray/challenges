@@ -199,6 +199,61 @@ def toggle_hats(num_cats:int):
 
     return cats
 
+def is_unique(a_string:str):
+    """Return True if a string has all unique characters, False if there are repeats.
+
+    >>> is_unique("abcdefg")
+    True
+
+    >>> is_unique("AaBbCc")
+    True
+
+    >>> is_unique("aa")
+    False
+
+    >>> is_unique("1234567891")
+    False
+    """
+    # # no additional data structures AND if can use sorting
+    #
+    # i = 1
+    # unique = True
+    #
+    # a_string = sorted(a_string)
+    #
+    # while i < (len(a_string)):
+    #     if a_string[i] == a_string[i-1]:
+    #         unique = False
+    #     i += 1
+    #
+    # return unique
+
+
+    #only strings, no sorting
+    unique = True
+
+    for idx, char in enumerate(a_string):
+        # make a new string that is all of the given string excluding the current char
+        to_check = a_string[:idx] + a_string[idx+1:]
+        if char in to_check:
+            unique = False
+
+    return unique
+
+    # #dict method
+    # characters = {}
+    #
+    # for char in a_string:
+    #     if characters.get(char):
+    #         return False
+    #     else:
+    #         characters[char] = True
+    #
+    # return True
+
+
+
+
 
 
 if __name__ == "__main__":
