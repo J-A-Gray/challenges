@@ -230,15 +230,12 @@ def is_unique(a_string:str):
 
 
     #only strings, no sorting
-    unique = True
 
-    for idx, char in enumerate(a_string):
-        # make a new string that is all of the given string excluding the current char
-        to_check = a_string[:idx] + a_string[idx+1:]
-        if char in to_check:
-            unique = False
+    for i in range(0, len(a_string)):
+        if a_string[i] in a_string[(i + 1):]:
+            return False
 
-    return unique
+    return True
 
     # #dict method
     # characters = {}
@@ -250,8 +247,6 @@ def is_unique(a_string:str):
     #         characters[char] = True
     #
     # return True
-
-
 
 
 
