@@ -12,16 +12,15 @@ def is_unique_without_dictionary(a_string:str):
 
     # no additional data structures AND if can use sorting
 
-    i = 1
 
     a_string = sorted(a_string)
 
-    while i < (len(a_string)):
-        if a_string[i] == a_string[i-1]:
+    for i in range(0, (len(a_string) - 1)):
+        if a_string[i] == a_string[i + 1]:
             return False
-        i += 1
 
     return True
+
 
 def is_unique_with_dictionary(a_string:str):
     """Return True if a string has all unique characters, False if there are repeats.
