@@ -214,30 +214,37 @@ def is_unique(a_string:str):
     >>> is_unique("1234567891")
     False
     """
+    # #if length of character set is known, can do a fail-fast check against that
+    # #i.e. if ASCII, then:
+    #
+    # if len(a_string) > 256:
+    #     return False
+
+    #
+
     # # no additional data structures AND if can use sorting
     #
-    # i = 1
-    # unique = True
-    #
-    # a_string = sorted(a_string)
-    #
-    # while i < (len(a_string)):
-    #     if a_string[i] == a_string[i-1]:
-    #         unique = False
-    #     i += 1
-    #
-    # return unique
+    i = 1
 
+    a_string = sorted(a_string)
 
-    #only strings, no sorting
-
-    for i in range(0, len(a_string)):
-        if a_string[i] in a_string[(i + 1):]:
+    while i < (len(a_string)):
+        if a_string[i] == a_string[i-1]:
             return False
+        i += 1
 
     return True
 
-    # #dict method
+
+    #only strings, no sorting
+    #
+    # for i in range(0, len(a_string)):
+    #     if a_string[i] in a_string[(i + 1):]:
+    #         return False
+    #
+    # return True
+
+    # #dict solution
     # characters = {}
     #
     # for char in a_string:
