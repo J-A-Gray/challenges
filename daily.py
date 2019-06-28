@@ -273,14 +273,10 @@ def replace_space_characters(phrase:list):
 
     for idx, char in enumerate(phrase):
         if phrase[idx - 1] == " ":
-            phrase.pop(idx-1)
-            phrase[idx-1:idx-1] = "%"
-            phrase[idx:idx] = "2"
-            phrase[idx + 1:idx + 1] = "0"
-
-
+            phrase[idx-1:idx] = ["%", "2", "0"]
 
     return phrase
+
 
 
 if __name__ == "__main__":
