@@ -258,6 +258,7 @@ def is_unique(a_string:str):
 
 def replace_space_characters(phrase:list):
     """Replace all single spaces with %20 in a list (done in list in order to manipulate the data structure in place)
+
     >>> replace_space_characters(list('Jane Developer'))
     ['J', 'a', 'n', 'e', '%', '2', '0', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r']
 
@@ -278,12 +279,17 @@ def replace_space_characters(phrase:list):
     return phrase
 
 def urlify(string, length):
-    """
+    """Replace all single spaces with '%20' in a string.
+
+    :param string:str
+    :param length:int #length represents 'true' length of string with no trailing spaces
+    :rtype str
+
+
     >>> test_length = len("what cannot be said will be wept")
     >>> urlify("what cannot be said will be wept            ", test_length)
     'what%20cannot%20be%20said%20will%20be%20wept'
 
-    >>> test_phrase = 'Jane Developer  '
     >>> urlify('Jane Developer  ', 14)
     'Jane%20Developer'
 
@@ -291,7 +297,7 @@ def urlify(string, length):
     index = len(string) #length of string with trailing spaces, use to shift chars to make room
     str_list = list(string)
 
-    for i in reversed(range(length)): #"true length" excludes trailing spaces
+    for i in reversed(range(length)): #"true length" excludes trailing spaces, moving backwards through the chars
         if str_list[i] != " ":
             str_list[index - 1] = str_list[i]
             index -= 1
@@ -308,25 +314,5 @@ if __name__ == "__main__":
     import doctest
     if doctest.testmod().failed == 0:
         print("\n*** ALL TESTS PASSED. YAY!\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
