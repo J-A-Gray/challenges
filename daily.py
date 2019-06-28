@@ -272,11 +272,36 @@ def replace_space_characters(phrase:list):
     """
 
     for idx, char in enumerate(phrase):
-        if phrase[idx - 1] == " ":
-            phrase[idx-1:idx] = ["%", "2", "0"]
+        if phrase[idx] == " ":
+            phrase[idx:idx+1] = ["%", "2", "0"]
 
     return phrase
 
+def urlify(string, length):
+    """
+    >>> test_length = len("what cannot be said will be wept")
+    >>> urlify("what cannot be said will be wept            ", test_length)
+    'what%20cannot%20be%20said%20will%20be%20wept'
+
+    >>> test_phrase = 'Jane Developer  '
+    >>> urlify('Jane Developer  ', 14)
+    'Jane%20Developer'
+
+    """
+    index = len(string) #length of string with trailing spaces, use to shift chars to make room
+    str_list = list(string)
+
+    for i in reversed(range(length)): #"true length" excludes trailing spaces
+        if str_list[i] != " ":
+            str_list[index - 1] = str_list[i]
+            index -= 1
+
+        else:
+            str_list[index-3:index] = "%20"
+            index -= 3 #skip three places toward the beginning
+
+
+    return "".join(str_list)
 
 
 if __name__ == "__main__":
