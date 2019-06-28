@@ -257,7 +257,7 @@ def is_unique(a_string:str):
 #1.3 from CtCI
 
 def replace_space_characters(phrase:list):
-    """Replace all single spaces with %20 in a list (done in list in order manipulate the data structure in place)
+    """Replace all single spaces with %20 in a list (done in list in order to manipulate the data structure in place)
     >>> replace_space_characters(list('Jane Developer'))
     ['J', 'a', 'n', 'e', '%', '2', '0', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r']
 
@@ -274,15 +274,13 @@ def replace_space_characters(phrase:list):
     for idx, char in enumerate(phrase):
         if phrase[idx - 1] == " ":
             phrase.pop(idx-1)
-            phrase.insert(idx-1, "%")
-            phrase.insert(idx, "2")
-            phrase.insert(idx+1, "0")
+            phrase[idx-1:idx-1] = "%"
+            phrase[idx:idx] = "2"
+            phrase[idx + 1:idx + 1] = "0"
+
 
 
     return phrase
-
-
-
 
 
 if __name__ == "__main__":
