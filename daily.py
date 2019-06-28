@@ -199,6 +199,7 @@ def toggle_hats(num_cats:int):
 
     return cats
 
+#1.1 from CtCI
 def is_unique(a_string:str):
     """Return True if a string has all unique characters, False if there are repeats.
 
@@ -251,6 +252,35 @@ def is_unique(a_string:str):
     #         characters[char] = True
     #
     # return True
+
+
+#1.3 from CtCI
+
+def replace_space_characters(phrase:list):
+    """Replace all single spaces with %20 in a list (done in list in order manipulate the data structure in place)
+    >>> replace_space_characters(list('Jane Developer'))
+    ['J', 'a', 'n', 'e', '%', '2', '0', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r']
+
+    >>> test_phrase = "Sarah Engineer"
+    >>> test_phrase = list(test_phrase)
+    >>> result = replace_space_characters(test_phrase)
+    >>> result == ['S', 'a', 'r', 'a', 'h', '%', '2', '0', 'E', 'n', 'g', 'i', 'n', 'e', 'e', 'r']
+    True
+    >>> id(test_phrase) == id(result)
+    True
+
+    """
+
+    for idx, char in enumerate(phrase):
+        if phrase[idx - 1] == " ":
+            phrase.pop(idx-1)
+            phrase.insert(idx-1, "%")
+            phrase.insert(idx, "2")
+            phrase.insert(idx+1, "0")
+
+
+    return phrase
+
 
 
 

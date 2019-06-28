@@ -1,3 +1,6 @@
+"""Thanks to Nikhil Kumar at https://www.geeksforgeeks.org/timeit-python-examples/ for a concise walkthrough
+of timeit"""
+
 import timeit
 
 def is_unique_without_dictionary(a_string:str):
@@ -71,7 +74,7 @@ is_unique_with_dictionary(test_string)'''
 
     times = timeit.repeat(setup=SETUP_CODE,
                           stmt=TEST_CODE,
-                          repeat=3,
+                          repeat=5,
                           number=10000)
 
     print('Using a dictionary to find out if a string has all unique characters - min time: {}'.format(min(times)))
@@ -89,7 +92,7 @@ is_unique_no_sorting(test_string)'''
 
     times = timeit.repeat(setup=SETUP_CODE,
                           stmt=TEST_CODE,
-                          repeat=3,
+                          repeat=5,
                           number=10000)
 
     print('Using no additional data structures and no sorting to find out if a string has all unique characters -  min time: {}'.format(
@@ -110,7 +113,7 @@ is_unique_without_dictionary(test_string)'''
 
     times = timeit.repeat(setup=SETUP_CODE,
                           stmt=TEST_CODE,
-                          repeat=3,
+                          repeat=5,
                           number=10000)
 
     print('Using no additional data structures to find out if a string has all unique characters - min time: {}'.format(
