@@ -20,10 +20,10 @@ def is_permutation(phrase1:str, phrase2:str):
     return len(characters) == 0
 
     # Solution 2
-    if len(phrase1) != len(phrase2):
-        return False
+    # if len(phrase1) != len(phrase2):
+    #     return False
 
-    return sorted(phrase1) == sorted(phrase2)
+    # return sorted(phrase1) == sorted(phrase2)
 
 assert is_permutation("moon", "noom") == True
 assert is_permutation("moon", "cow") == False
